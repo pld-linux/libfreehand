@@ -5,18 +5,17 @@
 Summary:	Library for parsing the FreeHand file format structure
 Summary(pl.UTF-8):	Biblioteka do analizy struktury formatu plików FreeHand
 Name:		libfreehand
-Version:	0.0.0
+Version:	0.1.0
 Release:	1
 License:	MPL v2.0
 Group:		Libraries
 Source0:	http://dev-www.libreoffice.org/src/%{name}-%{version}.tar.xz
-# Source0-md5:	d143a9c72164350b332d058fc5a3f16c
+# Source0-md5:	f50cee10fd59d50f1f350f9e817a0ab3
 URL:		http://www.freedesktop.org/wiki/Software/libfreehand/
 BuildRequires:	doxygen
 BuildRequires:	gperf >= 3.0.0
+BuildRequires:	librevenge-devel >= 0.0
 BuildRequires:	libstdc++-devel
-BuildRequires:	libwpd-devel >= 0.9
-BuildRequires:	libwpg-devel >= 0.2
 BuildRequires:	pkgconfig >= 1:0.20
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
@@ -36,9 +35,9 @@ Summary:	Header files for libfreehand library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libfreehand
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	librevenge-devel >= 0.0
 Requires:	libstdc++-devel
-Requires:	libwpd-devel >= 0.9
-Requires:	libwpg-devel >= 0.2
+Requires:	zlib-devel
 
 %description devel
 Header files for libfreehand library.
@@ -69,6 +68,20 @@ API documentation for libfreehand library.
 %description apidocs -l pl.UTF-8
 Dokumentacja API biblioteki libfreehand.
 
+%package tools
+Summary:	Tools to transform FreeHand drawings into other formats
+Summary(pl.UTF-8):	Programy przekształcania rysunków FreeHand do innych formatów
+Group:		Applications/Publishing
+Requires:	%{name} = %{version}-%{release}
+
+%description tools
+Tools to transform FreeHand drawings into other formats. Currently
+supported: SVG, raw.
+
+%description tools -l pl.UTF-8
+Narzędzia do przekształcania rysunków FreeHand do innych formatów.
+Aktualnie obsługiwane są SVG i format surowy.
+
 %prep
 %setup -q
 
@@ -97,24 +110,27 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog
-%attr(755,root,root) %{_bindir}/fh2raw
-%attr(755,root,root) %{_bindir}/fh2svg
-%attr(755,root,root) %{_libdir}/libfreehand-0.0.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libfreehand-0.0.so.0
+%doc AUTHORS ChangeLog NEWS
+%attr(755,root,root) %{_libdir}/libfreehand-0.1.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libfreehand-0.1.so.1
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libfreehand-0.0.so
-%{_includedir}/libfreehand-0.0
-%{_pkgconfigdir}/libfreehand-0.0.pc
+%attr(755,root,root) %{_libdir}/libfreehand-0.1.so
+%{_includedir}/libfreehand-0.1
+%{_pkgconfigdir}/libfreehand-0.1.pc
 
 %if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/libfreehand-0.0.a
+%{_libdir}/libfreehand-0.1.a
 %endif
 
 %files apidocs
 %defattr(644,root,root,755)
 %doc docs/doxygen/html/*
+
+%files tools
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/fh2raw
+%attr(755,root,root) %{_bindir}/fh2svg
