@@ -5,15 +5,17 @@
 Summary:	Library for parsing the FreeHand file format structure
 Summary(pl.UTF-8):	Biblioteka do analizy struktury formatu plików FreeHand
 Name:		libfreehand
-Version:	0.1.0
+Version:	0.1.1
 Release:	1
 License:	MPL v2.0
 Group:		Libraries
-Source0:	http://dev-www.libreoffice.org/src/%{name}-%{version}.tar.xz
-# Source0-md5:	f50cee10fd59d50f1f350f9e817a0ab3
+Source0:	http://dev-www.libreoffice.org/src/libfreehand/%{name}-%{version}.tar.xz
+# Source0-md5:	97eb6a8607de3c101ad05ceacc122107
 URL:		http://www.freedesktop.org/wiki/Software/libfreehand/
 BuildRequires:	doxygen
 BuildRequires:	gperf >= 3.0.0
+BuildRequires:	lcms2-devel >= 2
+BuildRequires:	libicu-devel
 BuildRequires:	librevenge-devel >= 0.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	pkgconfig >= 1:0.20
@@ -134,3 +136,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/fh2raw
 %attr(755,root,root) %{_bindir}/fh2svg
+%attr(755,root,root) %{_bindir}/fh2text
