@@ -5,12 +5,12 @@
 Summary:	Library for parsing the FreeHand file format structure
 Summary(pl.UTF-8):	Biblioteka do analizy struktury formatu plików FreeHand
 Name:		libfreehand
-Version:	0.1.1
-Release:	2
+Version:	0.1.2
+Release:	1
 License:	MPL v2.0
 Group:		Libraries
 Source0:	http://dev-www.libreoffice.org/src/libfreehand/%{name}-%{version}.tar.xz
-# Source0-md5:	97eb6a8607de3c101ad05ceacc122107
+# Source0-md5:	c3788f5686839fd097bd77d8f51c3d04
 URL:		http://www.freedesktop.org/wiki/Software/libfreehand/
 BuildRequires:	doxygen
 BuildRequires:	gperf >= 3.0.0
