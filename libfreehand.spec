@@ -12,12 +12,14 @@ Group:		Libraries
 Source0:	http://dev-www.libreoffice.org/src/libfreehand/%{name}-%{version}.tar.xz
 # Source0-md5:	c3788f5686839fd097bd77d8f51c3d04
 URL:		http://www.freedesktop.org/wiki/Software/libfreehand/
+BuildRequires:	boost-devel
 BuildRequires:	doxygen
 BuildRequires:	gperf >= 3.0.0
 BuildRequires:	lcms2-devel >= 2
 BuildRequires:	libicu-devel
 BuildRequires:	librevenge-devel >= 0.0
-BuildRequires:	libstdc++-devel
+BuildRequires:	libstdc++-devel >= 6:4.7
+BuildRequires:	perl-base
 BuildRequires:	pkgconfig >= 1:0.20
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
@@ -38,7 +40,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libfreehand
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	librevenge-devel >= 0.0
-Requires:	libstdc++-devel
+Requires:	libstdc++-devel >= 6:4.7
 Requires:	zlib-devel
 
 %description devel
