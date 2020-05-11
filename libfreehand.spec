@@ -97,7 +97,8 @@ Aktualnie obsługiwane są SVG i format surowy.
 %build
 %configure \
 	--disable-silent-rules \
-	%{?with_static_libs:--enable-static}
+	%{?with_static_libs:--enable-static} \
+	--disable-werror
 %{__make}
 
 %install
