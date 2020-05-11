@@ -11,6 +11,7 @@ License:	MPL v2.0
 Group:		Libraries
 Source0:	http://dev-www.libreoffice.org/src/libfreehand/%{name}-%{version}.tar.xz
 # Source0-md5:	c3788f5686839fd097bd77d8f51c3d04
+Patch0:		icu65.patch
 URL:		http://www.freedesktop.org/wiki/Software/libfreehand/
 BuildRequires:	boost-devel
 BuildRequires:	doxygen
@@ -91,6 +92,7 @@ Aktualnie obsługiwane są SVG i format surowy.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure \
