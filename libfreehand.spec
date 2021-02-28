@@ -66,9 +66,7 @@ Statyczna biblioteka libfreehand.
 Summary:	libfreehand API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki libfreehand
 Group:		Documentation
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 API documentation for libfreehand library.
