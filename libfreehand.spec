@@ -6,7 +6,7 @@ Summary:	Library for parsing the FreeHand file format structure
 Summary(pl.UTF-8):	Biblioteka do analizy struktury formatu plików FreeHand
 Name:		libfreehand
 Version:	0.1.2
-Release:	1
+Release:	2
 License:	MPL v2.0
 Group:		Libraries
 Source0:	http://dev-www.libreoffice.org/src/libfreehand/%{name}-%{version}.tar.xz
