@@ -1,18 +1,17 @@
 #
 # Conditional build:
-%bcond_without	static_libs	# don't build static libraries
+%bcond_without	static_libs	# static library
 
 Summary:	Library for parsing the FreeHand file format structure
 Summary(pl.UTF-8):	Biblioteka do analizy struktury formatu plików FreeHand
 Name:		libfreehand
-Version:	0.1.2
-Release:	2
+Version:	0.1.3
+Release:	1
 License:	MPL v2.0
 Group:		Libraries
-Source0:	http://dev-www.libreoffice.org/src/libfreehand/%{name}-%{version}.tar.xz
-# Source0-md5:	c3788f5686839fd097bd77d8f51c3d04
-Patch0:		icu65.patch
-URL:		http://www.freedesktop.org/wiki/Software/libfreehand/
+Source0:	https://dev-www.libreoffice.org/src/libfreehand/%{name}-%{version}.tar.xz
+# Source0-md5:	1747260c2762564e2910040afde05d71
+URL:		https://www.freedesktop.org/wiki/Software/libfreehand/
 BuildRequires:	boost-devel
 BuildRequires:	doxygen
 BuildRequires:	gperf >= 3.0.0
@@ -90,7 +89,6 @@ Aktualnie obsługiwane są SVG i format surowy.
 
 %prep
 %setup -q
-%patch -P0 -p1
 
 %build
 %configure \
@@ -119,12 +117,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS
-%attr(755,root,root) %{_libdir}/libfreehand-0.1.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libfreehand-0.1.so.1
+%{_libdir}/libfreehand-0.1.so.*.*.*
+%ghost %{_libdir}/libfreehand-0.1.so.1
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libfreehand-0.1.so
+%{_libdir}/libfreehand-0.1.so
 %{_includedir}/libfreehand-0.1
 %{_pkgconfigdir}/libfreehand-0.1.pc
 
