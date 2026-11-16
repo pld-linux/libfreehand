@@ -1,18 +1,20 @@
 #
 # Conditional build:
 %bcond_without	static_libs	# static library
+%bcond_without	tests		# unit tests
 
 Summary:	Library for parsing the FreeHand file format structure
 Summary(pl.UTF-8):	Biblioteka do analizy struktury formatu plików FreeHand
 Name:		libfreehand
-Version:	0.1.3
+Version:	0.1.4
 Release:	1
 License:	MPL v2.0
 Group:		Libraries
 Source0:	https://dev-www.libreoffice.org/src/libfreehand/%{name}-%{version}.tar.xz
-# Source0-md5:	1747260c2762564e2910040afde05d71
+# Source0-md5:	bbd3158fa98738bee18ed12f422f2c2f
 URL:		https://www.freedesktop.org/wiki/Software/libfreehand/
 BuildRequires:	boost-devel
+%{?with_tests:BuildRequires:	cppunit-devel}
 BuildRequires:	doxygen
 BuildRequires:	gperf >= 3.0.0
 BuildRequires:	lcms2-devel >= 2
@@ -92,10 +94,15 @@ Aktualnie obsługiwane są SVG i format surowy.
 
 %build
 %configure \
+	%{__enable_disable tests tests} \
 	--disable-silent-rules \
 	%{?with_static_libs:--enable-static} \
 	--disable-werror
 %{__make}
+
+%if %{with tests}
+%{__make} check
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
