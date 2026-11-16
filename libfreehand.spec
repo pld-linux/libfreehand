@@ -40,10 +40,10 @@ różnych aplikacji rysunków w formacie Adobe/Macromedia.
 Summary:	Header files for libfreehand library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libfreehand
 Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
-Requires:	librevenge-devel >= 0.0
-Requires:	libstdc++-devel >= 6:4.7
-Requires:	zlib-devel
+Requires:	%{name}%{?_isa} = %{version}-%{release}
+Requires:	librevenge-devel%{?_isa} >= 0.0
+Requires:	libstdc++-devel%{?_isa} >= 6:4.7
+Requires:	zlib-devel%{?_isa}
 
 %description devel
 Header files for libfreehand library.
@@ -55,7 +55,7 @@ Pliki nagłówkowe biblioteki libfreehand.
 Summary:	Static libfreehand library
 Summary(pl.UTF-8):	Statyczna biblioteka libfreehand
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}-%{release}
+Requires:	%{name}-devel%{?_isa} = %{version}-%{release}
 
 %description static
 Static libfreehand library.
@@ -79,7 +79,7 @@ Dokumentacja API biblioteki libfreehand.
 Summary:	Tools to transform FreeHand drawings into other formats
 Summary(pl.UTF-8):	Programy przekształcania rysunków FreeHand do innych formatów
 Group:		Applications/Publishing
-Requires:	%{name} = %{version}-%{release}
+Requires:	%{name}%{?_isa} = %{version}-%{release}
 
 %description tools
 Tools to transform FreeHand drawings into other formats. Currently
